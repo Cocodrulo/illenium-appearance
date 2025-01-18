@@ -2,19 +2,19 @@ Config = {}
 
 Config.Debug = false
 
-Config.ClothingCost = 100
-Config.BarberCost = 100
-Config.TattooCost = 100
-Config.SurgeonCost = 100
+Config.ClothingCost = 250
+Config.BarberCost = 350
+Config.TattooCost = 700
+Config.SurgeonCost = 999999999
 
-Config.ChargePerTattoo = true -- Charge players per tattoo. Config.TattooCost will become the cost of 1 tattoo. The cost can be overridden by adding `cost` key in shared/tattoos.lua for specific tattoos
+Config.ChargePerTattoo = false -- Charge players per tattoo. Config.TattooCost will become the cost of 1 tattoo. The cost can be overridden by adding `cost` key in shared/tattoos.lua for specific tattoos
 
 -- Only set this to true if you're using rcore_tattoos
-Config.RCoreTattoosCompatibility = false
+Config.RCoreTattoosCompatibility = true
 
-Config.AsynchronousLoading = false -- Change this to false if you want the NUI data to load before displaying the appearance UI
+Config.AsynchronousLoading = true -- Change this to false if you want the NUI data to load before displaying the appearance UI
 
-Config.UseTarget = false
+Config.UseTarget = true
 
 Config.TextUIOptions = {
     position = "left-center"
@@ -24,7 +24,7 @@ Config.NotifyOptions = {
     position = "top-right"
 }
 
-Config.OutfitCodeLength = 10
+Config.OutfitCodeLength = 15
 
 Config.UseRadialMenu = false
 Config.UseOxRadial = false -- Set to true to use ox_lib radial menu, both this and UseRadialMenu must be true 
@@ -73,6 +73,11 @@ Config.ReloadSkinCooldown = 5000
 
 Config.AutomaticFade = false -- Enables automatic fading and hides the Fade section from Hair
 
+-- ACE Permissions Config
+Config.EnableACEPermissions = false
+Config.ACEResetCooldown = 5000
+Config.ACEListCooldown = 60 * 60 * 1000 -- 1 Hour
+
 Config.DisableComponents = {
     Masks = false,
     UpperBody = false,
@@ -94,37 +99,34 @@ Config.DisableProps = {
     Bracelets = false
 }
 
----@type string[]
-Config.Aces = {} -- list of ace permissions used for blacklisting
-
 Config.Blips = {
     ["clothing"] = {
         Show = true,
-        Sprite = 366,
+        Sprite = 73,
         Color = 47,
         Scale = 0.7,
-        Name = "Clothing Store",
+        Name = "Tienda de Ropa",
     },
     ["barber"] = {
         Show = true,
         Sprite = 71,
         Color = 0,
         Scale = 0.7,
-        Name = "Barber",
+        Name = "Peluquerías",
     },
     ["tattoo"] = {
         Show = true,
         Sprite = 75,
         Color = 4,
         Scale = 0.7,
-        Name = "Tattoo Shop",
+        Name = "Centro de Tattoo",
     },
     ["surgeon"] = {
         Show = true,
         Sprite = 102,
         Color = 4,
         Scale = 0.7,
-        Name = "Plastic Surgeon",
+        Name = "Cirujano Plástico",
     }
 }
 
@@ -133,28 +135,27 @@ Config.TargetConfig = {
         model = "s_f_m_shop_high",
         scenario = "WORLD_HUMAN_STAND_MOBILE",
         icon = "fas fa-tshirt",
-        label = "Open Clothing Store",
+        label = "Abrir tienda de ropa",
         distance = 3
     },
     ["barber"] = {
         model = "s_m_m_hairdress_01",
         scenario = "WORLD_HUMAN_STAND_MOBILE",
-        icon = "fas fa-scissors",
-        label = "Open Barber Shop",
+        icon = "faAbrir peluquería",
         distance = 3
     },
     ["tattoo"] = {
         model = "u_m_y_tattoo_01",
         scenario = "WORLD_HUMAN_STAND_MOBILE",
         icon = "fas fa-pen",
-        label = "Open Tattoo Shop",
+        label = "Abrir centro de tattoo",
         distance = 3
     },
     ["surgeon"] = {
         model = "s_m_m_doctor_01",
         scenario = "WORLD_HUMAN_STAND_MOBILE",
         icon = "fas fa-scalpel",
-        label = "Open Surgeon",
+        label = "Abrir cirujano plástico",
         distance = 3
     },
     ["clothingroom"] = {
@@ -168,7 +169,7 @@ Config.TargetConfig = {
         model = "mp_g_m_pros_01",
         scenario = "WORLD_HUMAN_STAND_MOBILE",
         icon = "fas fa-sign-in-alt",
-        label = "Open Outfits Menu",
+        label = "Abrir outifits",
         distance = 3
     },
 }
@@ -541,19 +542,6 @@ Config.Stores = {
             vector3(-294.1501159668, 6203.2700195312, 31.49)
         }
     },
-    {
-        type = "surgeon",
-        coords = vector4(298.78, -572.81, 43.26, 114.27),
-        size = vector3(4, 4, 4),
-        rotation = 45,
-        usePoly = false,
-        points = {
-            vector3(298.84417724609, -572.92205810547, 43.26),
-            vector3(296.39556884766, -575.65942382812, 43.26),
-            vector3(293.56317138672, -572.60675048828, 43.26),
-            vector3(296.28656005859, -570.330078125, 43.26)
-        }
-    }
 }
 
 

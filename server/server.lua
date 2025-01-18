@@ -133,6 +133,15 @@ lib.callback.register("illenium-appearance:server:getOutfits", function(source)
     return outfitCache[citizenID]
 end)
 
+Framework.CreateCallback("qb-clothing:server:getOutfits", function(source, cb, args) 
+    local citizenID = Framework.GetPlayerID(source)
+    if outfitCache[citizenID] == nil then
+        getOutfitsForPlayer(citizenID)
+    end
+    cb(outfitCache[citizenID])
+end)
+
+
 lib.callback.register("illenium-appearance:server:getManagementOutfits", function(source, mType, gender)
     local job = Framework.GetJob(source)
     if mType == "Gang" then
